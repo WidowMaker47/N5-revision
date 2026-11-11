@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}[hidden]{display:none!important}</style></head><body>
+<title>National 5 Physics Flashcards</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one centred study column. Area tabs on top, big flip card, then controls. Matches the Biology and Geography sets. */
+:root{
+  --bg:#eef1f4; --surface:#ffffff; --ink:#152330; --muted:#556676; --line:#cdd6de;
+  --d:#1f62b8; --s:#4b3fb0; --e:#b5600b; --p:#a8326a; --w:#0f7f86; --r:#2f7d32;
+  --d-soft:#e1ecfa; --s-soft:#e8e6f9; --e-soft:#fbecdc; --p-soft:#f8e3ee; --w-soft:#dcf2f3; --r-soft:#e2f1e2;
+  --focus:#0b5cad;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1820; --surface:#18252f; --ink:#e5edf3; --muted:#9db0bf; --line:#2c3d4a;
+  --d:#7fb0f5; --s:#a99ff5; --e:#f5a659; --p:#f08cbb; --w:#5fd0d6; --r:#79cf7e;
+  --d-soft:#1b2c44; --s-soft:#26223f; --e-soft:#3a2a17; --p-soft:#3a1f2d; --w-soft:#14353a; --r-soft:#1a3420;
+  --focus:#6cb4ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1820; --surface:#18252f; --ink:#e5edf3; --muted:#9db0bf; --line:#2c3d4a;
+  --d:#7fb0f5; --s:#a99ff5; --e:#f5a659; --p:#f08cbb; --w:#5fd0d6; --r:#79cf7e;
+  --d-soft:#1b2c44; --s-soft:#26223f; --e-soft:#3a2a17; --p-soft:#3a1f2d; --w-soft:#14353a; --r-soft:#1a3420;
+  --focus:#6cb4ff; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;
+  padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-family:var(--display);font-size:clamp(1.6rem,5vw,2.1rem);line-height:1.15;margin:0;text-wrap:balance}
+.sub{margin:4px 0 0;color:var(--muted);font-size:.95rem}
+button{font:inherit;color:inherit;cursor:pointer}
+button:disabled{opacity:.45;cursor:default}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.92rem}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tab .n{font-weight:400;opacity:.7;margin-left:4px;font-variant-numeric:tabular-nums}
+
+.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--r);transition:width .25s}
+label.chk{display:flex;gap:6px;align-items:center;cursor:pointer}
+
+.scene{perspective:1200px}
+.card{position:relative;width:100%;min-height:300px;display:block;border:0;background:none;padding:0;text-align:left;
+  transform-style:preserve-3d;transition:transform .45s}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;
+  border:1.5px solid var(--line);background:var(--surface);padding:22px 22px 18px;display:flex;flex-direction:column;gap:12px;overflow:auto}
+.back{transform:rotateY(180deg)}
+.tag{align-self:flex-start;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.u-d .tag{background:var(--d-soft);color:var(--d)} .u-d .face{border-top:5px solid var(--d)}
+.u-s .tag{background:var(--s-soft);color:var(--s)} .u-s .face{border-top:5px solid var(--s)}
+.u-e .tag{background:var(--e-soft);color:var(--e)} .u-e .face{border-top:5px solid var(--e)}
+.u-p .tag{background:var(--p-soft);color:var(--p)} .u-p .face{border-top:5px solid var(--p)}
+.u-w .tag{background:var(--w-soft);color:var(--w)} .u-w .face{border-top:5px solid var(--w)}
+.u-r .tag{background:var(--r-soft);color:var(--r)} .u-r .face{border-top:5px solid var(--r)}
+.q{font-family:var(--display);font-size:clamp(1.3rem,4.4vw,1.65rem);line-height:1.25;margin:auto 0;text-wrap:balance}
+.a{font-size:1.08rem;margin:auto 0}
+.hint{font-size:.82rem;color:var(--muted);margin-top:auto}
+
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{flex:1 1 120px;border:1.5px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;font-weight:600}
+.btn.again{border-color:var(--p);color:var(--p)}
+.btn.got{border-color:var(--r);color:var(--r)}
+.btn:hover:not(:disabled){background:var(--bg)}
+.small{display:flex;gap:10px;flex-wrap:wrap}
+.small .btn{flex:0 1 auto;padding:7px 14px;font-weight:400;font-size:.93rem}
+.empty{padding:28px;text-align:center;border:1.5px dashed var(--line);border-radius:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.card,.bar i{transition:none}}
+@media (max-width:420px){.card{min-height:360px}}
+</style>
+
+<main>
+  <header>
+    <h1>National 5 Physics Flashcards</h1>
+    <p class="sub">Tap the card or press Space to flip. Arrow keys move between cards.</p>
+  </header>
+
+  <div class="tabs" id="tabs" role="group" aria-label="Choose an area"></div>
+
+  <div class="meta">
+    <span id="count" aria-live="polite"></span>
+    <label class="chk" for="hideKnown"><input type="checkbox" id="hideKnown"> Hide cards I know</label>
+  </div>
+  <div class="bar" aria-hidden="true"><i id="fill"></i></div>
+
+  <div class="scene" id="scene"></div>
+
+  <div class="row" id="rate">
+    <button class="btn again" id="again" type="button">Still learning</button>
+    <button class="btn got" id="got" type="button">Got it</button>
+  </div>
+  <div class="small">
+    <button class="btn" id="prev" type="button">&larr; Back</button>
+    <button class="btn" id="next" type="button">Next &rarr;</button>
+    <button class="btn" id="shuffle" type="button">Shuffle</button>
+    <button class="btn" id="reset" type="button">Clear progress</button>
+  </div>
+</main>
+
+<script>
+(function(){
+var UNITS={d:'Dynamics',s:'Space',e:'Electricity',p:'Properties of Matter',w:'Waves',r:'Radiation'};
+var C=[
+/* Dynamics */
+['d','What is the difference between a vector and a scalar?','A vector has magnitude and direction. A scalar has magnitude only.'],
+['d','Sort into vectors and scalars: force, speed, velocity, distance, displacement, acceleration, mass, time, energy.','Vectors: force, velocity, displacement, acceleration. Scalars: speed, distance, mass, time, energy.'],
+['d','What is the difference between distance and displacement?','Distance is the total length of the path travelled (scalar). Displacement is the straight-line distance from start to finish, with a direction (vector).'],
+['d','How do you find the resultant of two vectors at right angles?','Use Pythagoras for the size, and trigonometry (tan) or a scale diagram for the direction. Give direction as a bearing or an angle.'],
+['d','How would you measure the instantaneous speed of a trolley?','Fix a card of known length to the trolley. Use a light gate and timer to time how long the card blocks the beam. Speed = card length ÷ time.'],
+['d','Define acceleration and give its equation and unit.','The change in velocity per unit time. a = (v − u) ÷ t. Unit: m/s².'],
+['d','On a velocity–time graph, what does the gradient show? What does the area under the line show?','Gradient = acceleration. Area under the line = displacement.'],
+['d','State Newton’s first law.','An object stays at rest, or moves at constant velocity, unless an unbalanced force acts on it. Balanced forces mean no change in motion.'],
+['d','State Newton’s second law as an equation, with units.','F = ma. Unbalanced force (N) = mass (kg) × acceleration (m/s²).'],
+['d','State Newton’s third law.','If A exerts a force on B, B exerts an equal and opposite force on A.'],
+['d','What is the difference between mass and weight?','Mass is the amount of matter (kg), the same everywhere. Weight is the force of gravity on it (N): W = mg. Earth’s g = 9.8 N/kg.'],
+['d','Explain why a skydiver reaches terminal velocity.','At first, weight is greater than air resistance, so they accelerate. Air resistance increases with speed until it equals weight. The forces are balanced, so velocity stays constant.'],
+['d','State the equations for work done, gravitational potential energy and kinetic energy.','Work done: W = Fd. Gravitational potential energy: Ep = mgh. Kinetic energy: Ek = ½mv². All in joules (J).'],
+['d','A ball is dropped. Ignoring air resistance, how do you find its speed at the bottom?','All Ep becomes Ek. Set mgh = ½mv², so v = √(2gh).'],
+['d','Describe the horizontal and vertical motion of a projectile fired horizontally.','Horizontal: constant velocity (no horizontal force). Vertical: constant acceleration downwards due to gravity (9.8 m/s² on Earth). The two are independent.'],
+['d','Which equations do you use for a horizontally launched projectile?','Horizontal: s = vt. Vertical: v = u + at, starting from u = 0. Or use the areas under the velocity–time graphs.'],
+['d','Use projectile motion to explain how a satellite stays in orbit.','The satellite is always falling towards Earth because of its weight. Its horizontal speed is so high that the surface curves away at the same rate it falls, so it never reaches the ground.'],
+/* Space */
+['s','What is the difference between a planet, a dwarf planet and a moon?','A planet orbits a star and has cleared its orbit of other objects. A dwarf planet orbits a star but has not cleared its orbit. A moon orbits a planet.'],
+['s','Define star, solar system, galaxy and Universe.','Star: a ball of gas giving out light and heat by fusion. Solar system: a star and the objects orbiting it. Galaxy: a large group of stars. Universe: everything, made of many galaxies.'],
+['s','What is an exoplanet?','A planet orbiting a star other than the Sun.'],
+['s','Give four uses of satellites.','GPS, weather forecasting, communications, and observing Earth and space for science (e.g. the Hubble telescope).'],
+['s','What is a geostationary satellite?','One with a period of 24 hours at about 36 000 km above the equator. It stays above the same point on Earth.'],
+['s','How does a satellite’s period depend on its altitude?','The higher the orbit, the longer the period.'],
+['s','What is an ion drive?','An engine that fires charged particles out at very high speed. It gives a very small thrust over a long time, so a spacecraft can reach high speeds using little fuel.'],
+['s','What is a "catapult" (slingshot) manoeuvre?','A spacecraft uses the gravity of a moving planet or moon to change direction and gain speed without using fuel.'],
+['s','Why is manoeuvring a spacecraft in space difficult?','There is no friction to slow it down. It must fire thrusters the opposite way to stop or turn (Newton’s third law).'],
+['s','Why must solar cells be larger further from the Sun?','The Sun’s light is less intense further away, so a larger area is needed to collect the same power.'],
+['s','Name four risks of a crewed space mission.','The large fuel load at take-off, exposure to radiation, the pressure difference between the craft and space, and heating on re-entry.'],
+['s','Why does a spacecraft heat up on re-entry, and how is it protected?','Friction with the atmosphere turns kinetic energy into heat. A heat shield made of material with a high specific heat capacity or high melting point protects it.'],
+['s','Use Newton’s third law to explain how a rocket lifts off.','The rocket pushes exhaust gases down. The gases push the rocket up with an equal and opposite force.'],
+['s','What is a light-year?','The distance light travels in one year: about 9.5 × 10¹⁵ m. Distance = speed of light (3 × 10⁸ m/s) × seconds in a year.'],
+['s','Describe the Big Bang theory.','The Universe began as a very small, hot, dense point and has been expanding ever since.'],
+['s','What is the estimated age of the Universe?','About 14 billion years (13.8 billion).'],
+['s','Why do astronomers use the whole electromagnetic spectrum?','Different objects give out different types of radiation. Using all of it gives more information than visible light alone.'],
+['s','What is the difference between a continuous spectrum and a line spectrum?','Continuous: all colours with no gaps (e.g. from a hot filament). Line: only certain sharp coloured lines, given by a particular element.'],
+['s','How can a line spectrum show which elements are in a star?','Each element has its own unique pattern of lines. Match the lines in the star’s spectrum to known elements.'],
+/* Electricity */
+['e','Define electric current and give the equation linking it to charge.','The rate of flow of charge. Q = It. Charge (C) = current (A) × time (s).'],
+['e','What is the difference between AC and DC?','DC flows in one direction only. AC changes direction regularly. UK mains is AC at 230 V, 50 Hz.'],
+['e','How do AC and DC look on an oscilloscope?','DC: a flat horizontal line. AC: a wave going above and below the zero line.'],
+['e','What does the potential difference (voltage) of a supply measure?','The energy given to the charge carriers. 1 volt = 1 joule per coulomb.'],
+['e','What happens to a charged particle in an electric field?','It feels a force. Between oppositely charged plates, a positive charge moves towards the negative plate and a negative charge towards the positive plate.'],
+['e','State Ohm’s law as an equation.','V = IR. Potential difference (V) = current (A) × resistance (Ω).'],
+['e','How do you find resistance from a V–I graph?','Resistance = gradient of the line (V ÷ I).'],
+['e','What happens to the resistance of a metal conductor as it heats up?','It increases.'],
+['e','How would you verify Ohm’s law?','Connect a resistor with an ammeter in series and a voltmeter across it. Vary the voltage and record pairs of V and I. A straight line through the origin shows V ÷ I is constant.'],
+['e','How do you connect an ammeter and a voltmeter?','Ammeter in series. Voltmeter in parallel, across the component.'],
+['e','State the current and voltage rules for series and parallel circuits.','Series: current is the same everywhere; voltages add up to the supply. Parallel: branch currents add up to the total; voltage is the same across each branch.'],
+['e','How do you work out total resistance in series and in parallel?','Series: R_T = R₁ + R₂. Parallel: 1/R_T = 1/R₁ + 1/R₂. In parallel, the total is less than the smallest resistor.'],
+['e','How does the resistance of a thermistor and an LDR change?','Thermistor: resistance decreases as temperature increases. LDR: resistance decreases as light level increases.'],
+['e','State the function of a diode, an LED, a capacitor and a relay.','Diode: lets current flow one way only. LED: gives out light, with current one way only. Capacitor: stores charge. Relay: a switch worked by an electromagnet, so a small current can switch a larger one.'],
+['e','How do a transistor and a MOSFET work as switches?','They switch on when the voltage across their input (base or gate) reaches a set value. For an npn transistor this is about 0.7 V. Used with a thermistor or LDR in a voltage divider to switch on a device automatically.'],
+['e','What is the function of a photovoltaic cell, a microphone and a loudspeaker?','Photovoltaic cell: light to electrical energy. Microphone: sound to electrical. Loudspeaker: electrical to sound.'],
+['e','State the equations for electrical power.','P = E ÷ t, P = IV, P = I²R and P = V²/R. Power in watts (W).'],
+['e','Which fuse should a plug have?','3 A for appliances up to 720 W. 13 A for appliances over 720 W.'],
+/* Properties of Matter */
+['p','Define specific heat capacity and give the equation.','The energy needed to raise the temperature of 1 kg of a substance by 1 °C. E = cmΔT. Unit of c: J/kg °C.'],
+['p','What does the temperature of a substance measure?','The mean (average) kinetic energy of its particles.'],
+['p','Why is a measured value of specific heat capacity often higher than the true value?','Heat is lost to the surroundings, so more energy is supplied than goes into the material.'],
+['p','Define specific latent heat and give the equation.','The energy needed to change the state of 1 kg of a substance without a change in temperature. E = ml. Unit: J/kg.'],
+['p','What is the difference between latent heat of fusion and of vaporisation?','Fusion: solid ↔ liquid. Vaporisation: liquid ↔ gas. Vaporisation needs more energy for the same substance.'],
+['p','Why does temperature stay constant while a substance melts or boils?','The energy is used to break the bonds between particles, not to increase their kinetic energy.'],
+['p','Define pressure and give its unit.','Force per unit area. p = F ÷ A. Unit: pascal (Pa), equal to 1 N/m².'],
+['p','Use the kinetic model to explain gas pressure.','Gas particles move randomly and collide with the container walls. Each collision exerts a force, and force on the area of the walls gives pressure.'],
+['p','How do you convert between °C and kelvin? What is absolute zero?','K = °C + 273. Absolute zero is 0 K (−273 °C), where particles have no kinetic energy.'],
+['p','State Boyle’s law (pressure and volume).','For a fixed mass of gas at constant temperature, p₁V₁ = p₂V₂. If the volume decreases, the pressure increases.'],
+['p','Explain Boyle’s law using the kinetic model.','A smaller volume means particles hit the walls more often, so the force per area (pressure) increases.'],
+['p','State the pressure–temperature law (Gay-Lussac’s law).','For a fixed mass at constant volume, p ÷ T is constant: p₁/T₁ = p₂/T₂, with T in kelvin.'],
+['p','Explain the pressure–temperature law using the kinetic model.','Higher temperature means faster particles. They hit the walls harder and more often, so pressure increases.'],
+['p','State Charles’ law (volume and temperature).','For a fixed mass at constant pressure, V ÷ T is constant: V₁/T₁ = V₂/T₂, with T in kelvin.'],
+['p','Explain Charles’ law using the kinetic model.','Higher temperature means faster particles hitting the walls harder. For pressure to stay the same, the volume must increase so collisions are less frequent.'],
+/* Waves */
+['w','What do all waves transfer?','Energy.'],
+['w','What is the difference between transverse and longitudinal waves? Give an example of each.','Transverse: vibrations at right angles to the direction of travel (light, water waves, all EM waves). Longitudinal: vibrations along the direction of travel (sound).'],
+['w','Define wavelength, amplitude, frequency and period.','Wavelength: distance between two neighbouring crests (m). Amplitude: height from the rest position to a crest (m). Frequency: number of waves per second (Hz). Period: time for one wave (s).'],
+['w','State the wave equations.','v = fλ, v = d ÷ t, f = N ÷ t and T = 1 ÷ f.'],
+['w','What is diffraction?','The spreading out of waves when they pass through a gap or around an obstacle.'],
+['w','Which diffract more, long or short wavelengths? Give an example.','Long wavelengths diffract more. Long-wave radio bends around hills better than TV or mobile signals.'],
+['w','List the EM spectrum in order of increasing frequency.','Radio, microwaves, infrared, visible light, ultraviolet, X-rays, gamma rays. Wavelength decreases in the same order.'],
+['w','What do all EM waves have in common?','They are all transverse and travel at the speed of light, 3 × 10⁸ m/s in a vacuum.'],
+['w','Give a use and a detector for radio waves, microwaves and infrared.','Radio: broadcasting, detected by an aerial. Microwaves: mobile phones and cooking, detected by an aerial. Infrared: thermal imaging and remote controls, detected by a thermometer, photodiode or IR camera.'],
+['w','Give a use and a detector for ultraviolet, X-rays and gamma rays.','UV: security marking and sterilising, detected by fluorescent paint. X-rays: imaging bones, detected by photographic film. Gamma: treating cancer and sterilising equipment, detected by a Geiger–Müller tube.'],
+['w','What is refraction?','The change in speed of a wave when it passes from one medium into another. It usually causes a change of direction.'],
+['w','What happens to light entering glass from air at an angle?','It slows down, its wavelength decreases, and it bends towards the normal. Its frequency stays the same.'],
+['w','What happens when light enters glass along the normal (0°)?','It slows down and its wavelength decreases, but it does not change direction.'],
+['w','On a ray diagram, what are the normal, the angle of incidence and the angle of refraction?','Normal: a line at 90° to the surface where the ray hits. Angle of incidence: between the incoming ray and the normal. Angle of refraction: between the refracted ray and the normal.'],
+/* Radiation */
+['r','What is an alpha particle, and what stops it?','Two protons and two neutrons (a helium nucleus). Stopped by paper or a few cm of air.'],
+['r','What is a beta particle, and what stops it?','A fast-moving electron from the nucleus. Stopped by a few mm of aluminium.'],
+['r','What is gamma radiation, and what stops it?','An electromagnetic wave. Reduced by several cm of lead or thick concrete.'],
+['r','What is ionisation?','When an atom gains or loses electrons and becomes charged (an ion).'],
+['r','Which radiation is most ionising? Which is most penetrating?','Alpha is most ionising and least penetrating. Gamma is least ionising and most penetrating.'],
+['r','Define activity and give the equation.','The number of nuclei decaying per second. A = N ÷ t. Unit: becquerel (Bq).'],
+['r','Name sources of background radiation.','Natural: radon gas, rocks and soil, cosmic rays, food and drink. Artificial: medical uses, nuclear power and fallout from weapons testing.'],
+['r','Why is ionising radiation dangerous to living cells?','It can damage or kill cells and damage DNA, which can lead to cancer.'],
+['r','State the equation for absorbed dose.','D = E ÷ m. Energy absorbed (J) per kg of tissue. Unit: gray (Gy).'],
+['r','State the equation for equivalent dose.','H = D × w_R. Unit: sievert (Sv). The weighting factor w_R is 20 for alpha and 1 for beta and gamma.'],
+['r','How do you work out the equivalent dose rate?','Ḣ = H ÷ t. Equivalent dose divided by time.'],
+['r','State the three annual dose figures you need to know.','UK average background: 2.2 mSv. Limit for the public: 1 mSv. Limit for radiation workers: 20 mSv.'],
+['r','Give four uses of nuclear radiation.','Generating electricity, treating cancer, sterilising medical equipment, and tracers in industry and medicine.'],
+['r','Define half-life.','The time for the activity of a radioactive source to fall to half its original value.'],
+['r','Describe how to measure the half-life of a source.','Measure the background count rate. Measure the source’s count rate at regular times and subtract background. Plot corrected count rate against time and read off the time for it to halve.'],
+['r','Describe nuclear fission and a chain reaction.','A neutron hits a large nucleus (e.g. uranium), which splits into two smaller nuclei, releasing energy and more neutrons. These neutrons split more nuclei, giving a chain reaction.'],
+['r','Describe nuclear fusion.','Two small nuclei (e.g. hydrogen) join to form a larger nucleus, releasing energy. It needs very high temperatures, so the fuel is a plasma held in place by magnetic fields.'],
+['r','Complete the prefixes: nano, micro, milli, kilo, mega, giga.','nano (n) 10⁻⁹, micro (μ) 10⁻⁶, milli (m) 10⁻³, kilo (k) 10³, mega (M) 10⁶, giga (G) 10⁹.']
+];
+C.forEach(function(c,i){c.id=i});
+
+var KEY='n5phys-known';
+var st={unit:'all',hide:false,order:[],pos:0,flipped:false,known:{}};
+try{var k=JSON.parse(localStorage.getItem(KEY)||'{}');if(k&&typeof k==='object')st.known=k}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st.known))}catch(e){}}
+function $(id){return document.getElementById(id)}
+
+function deck(){
+  return C.filter(function(c){
+    return (st.unit==='all'||c[0]===st.unit)&&!(st.hide&&st.known[c.id]);
+  });
+}
+function build(shuffle){
+  var d=deck();
+  if(shuffle){for(var i=d.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=d[i];d[i]=d[j];d[j]=t}}
+  st.order=d;st.pos=0;st.flipped=false;render();
+}
+function tabs(){
+  var el=$('tabs');el.innerHTML='';
+  [['all','All areas']].concat(Object.keys(UNITS).map(function(k){return [k,UNITS[k]]})).forEach(function(u){
+    var n=C.filter(function(c){return u[0]==='all'||c[0]===u[0]}).length;
+    var b=document.createElement('button');b.type='button';b.className='tab';
+    b.setAttribute('aria-pressed',String(st.unit===u[0]));
+    b.innerHTML=u[1]+'<span class="n">'+n+'</span>';
+    b.onclick=function(){st.unit=u[0];tabs();build(false)};
+    el.appendChild(b);
+  });
+}
+function render(){
+  var scene=$('scene'),total=C.filter(function(c){return st.unit==='all'||c[0]===st.unit}).length;
+  var known=C.filter(function(c){return (st.unit==='all'||c[0]===st.unit)&&st.known[c.id]}).length;
+  $('fill').style.width=(total?known/total*100:0)+'%';
+  if(!st.order.length){
+    scene.innerHTML='<div class="empty">'+(st.hide?'You know every card in this area. Untick "Hide cards I know" to revise them again.':'No cards here.')+'</div>';
+    $('count').textContent=known+' of '+total+' known';
+    ['again','got','prev','next'].forEach(function(i){$(i).disabled=true});return;
+  }
+  ['again','got','prev','next'].forEach(function(i){$(i).disabled=false});
+  var c=st.order[st.pos];
+  scene.innerHTML='<button type="button" class="card u-'+c[0]+(st.flipped?' flipped':'')+'" id="card" aria-label="Flashcard. Press to flip.">'+
+    '<span class="face front"><span class="tag">'+UNITS[c[0]]+'</span><span class="q"></span><span class="hint">Tap to see the answer</span></span>'+
+    '<span class="face back"><span class="tag">Answer</span><span class="a"></span><span class="hint">'+(st.known[c.id]?'Marked as known':'Not marked yet')+'</span></span></button>';
+  scene.querySelector('.q').textContent=c[1];
+  scene.querySelector('.a').textContent=c[2];
+  $('card').onclick=flip;
+  $('count').textContent='Card '+(st.pos+1)+' of '+st.order.length+' · '+known+' of '+total+' known';
+}
+function flip(){st.flipped=!st.flipped;var c=$('card');if(c)c.classList.toggle('flipped',st.flipped)}
+function go(d){if(!st.order.length)return;st.pos=(st.pos+d+st.order.length)%st.order.length;st.flipped=false;render()}
+function mark(v){
+  if(!st.order.length)return;var c=st.order[st.pos];
+  if(v)st.known[c.id]=1;else delete st.known[c.id];
+  save();
+  if(v&&st.hide){st.order.splice(st.pos,1);if(st.pos>=st.order.length)st.pos=0;st.flipped=false;render()}
+  else go(1);
+}
+$('next').onclick=function(){go(1)};
+$('prev').onclick=function(){go(-1)};
+$('got').onclick=function(){mark(true)};
+$('again').onclick=function(){mark(false)};
+$('shuffle').onclick=function(){build(true)};
+$('reset').onclick=function(){st.known={};save();build(false)};
+$('hideKnown').onchange=function(e){st.hide=e.target.checked;build(false)};
+document.addEventListener('keydown',function(e){
+  if(e.target&&(e.target.tagName==='INPUT'))return;
+  if(e.key==='ArrowRight')go(1);else if(e.key==='ArrowLeft')go(-1);
+  else if(e.key===' '&&!(e.target&&e.target.tagName==='BUTTON')){e.preventDefault();flip()}
+});
+tabs();build(false);
+})();
+</script>
+
+</body></html>

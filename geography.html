@@ -1,0 +1,236 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>National 5 Geography Flashcards</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one centred study column. Unit tabs on top, big flip card, then controls. */
+:root{
+  --bg:#eef1f4; --surface:#ffffff; --ink:#172230; --muted:#56667a; --line:#cfd8e2;
+  --glac:#1f6fb2; --wx:#b8620f; --clim:#2f7d4f; --haz:#b0322f;
+  --glac-soft:#e0eef9; --wx-soft:#faebd9; --clim-soft:#dff0e6; --haz-soft:#f9e3e2;
+  --good:#2f7d4f; --bad:#b0322f; --focus:#0b5cad;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1822; --surface:#182532; --ink:#e7eef5; --muted:#9fb1c4; --line:#2c4054;
+  --glac:#6cb4ff; --wx:#f0a860; --clim:#5fd08f; --haz:#ff8f8a;
+  --glac-soft:#16304a; --wx-soft:#3a2915; --clim-soft:#173626; --haz-soft:#3d2121;
+  --good:#5fd08f; --bad:#ff8f8a; --focus:#6cb4ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1822; --surface:#182532; --ink:#e7eef5; --muted:#9fb1c4; --line:#2c4054;
+  --glac:#6cb4ff; --wx:#f0a860; --clim:#5fd08f; --haz:#ff8f8a;
+  --glac-soft:#16304a; --wx-soft:#3a2915; --clim-soft:#173626; --haz-soft:#3d2121;
+  --good:#5fd08f; --bad:#ff8f8a; --focus:#6cb4ff; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;
+  padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-family:var(--display);font-size:clamp(1.6rem,5vw,2.1rem);line-height:1.15;margin:0;text-wrap:balance}
+.sub{margin:4px 0 0;color:var(--muted);font-size:.95rem}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.92rem}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tab .n{font-weight:400;opacity:.7;margin-left:4px;font-variant-numeric:tabular-nums}
+
+.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--good);transition:width .25s}
+label.chk{display:flex;gap:6px;align-items:center;cursor:pointer}
+
+.scene{perspective:1200px}
+.card{position:relative;width:100%;min-height:320px;display:block;border:0;background:none;padding:0;text-align:left;
+  transform-style:preserve-3d;transition:transform .45s}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;
+  border:1.5px solid var(--line);background:var(--surface);padding:22px 22px 18px;display:flex;flex-direction:column;gap:12px;overflow:auto}
+.back{transform:rotateY(180deg)}
+.tag{align-self:flex-start;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.u-g .tag{background:var(--glac-soft);color:var(--glac)} .u-g .face{border-top:5px solid var(--glac)}
+.u-w .tag{background:var(--wx-soft);color:var(--wx)} .u-w .face{border-top:5px solid var(--wx)}
+.u-c .tag{background:var(--clim-soft);color:var(--clim)} .u-c .face{border-top:5px solid var(--clim)}
+.u-h .tag{background:var(--haz-soft);color:var(--haz)} .u-h .face{border-top:5px solid var(--haz)}
+.q{font-family:var(--display);font-size:clamp(1.3rem,4.4vw,1.65rem);line-height:1.25;margin:auto 0;text-wrap:balance}
+.a{font-size:1.08rem;margin:auto 0}
+.hint{font-size:.82rem;color:var(--muted);margin-top:auto}
+
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{flex:1 1 120px;border:1.5px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;font-weight:600}
+.btn.again{border-color:var(--bad);color:var(--bad)}
+.btn.got{border-color:var(--good);color:var(--good)}
+.btn:hover{background:var(--bg)}
+.small{display:flex;gap:10px;flex-wrap:wrap}
+.small .btn{flex:0 1 auto;padding:7px 14px;font-weight:400;font-size:.93rem}
+.empty{padding:28px;text-align:center;border:1.5px dashed var(--line);border-radius:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.card,.bar i{transition:none}}
+@media (max-width:420px){.card{min-height:360px}}
+</style>
+
+<main>
+  <header>
+    <h1>National 5 Geography Flashcards</h1>
+    <p class="sub">Tap the card or press Space to flip. Arrow keys move between cards.</p>
+  </header>
+
+  <div class="tabs" id="tabs" role="group" aria-label="Choose a topic"></div>
+
+  <div class="meta">
+    <span id="count" aria-live="polite"></span>
+    <label class="chk" for="hideKnown"><input type="checkbox" id="hideKnown"> Hide cards I know</label>
+  </div>
+  <div class="bar" aria-hidden="true"><i id="fill"></i></div>
+
+  <div class="scene" id="scene"></div>
+
+  <div class="row" id="rate">
+    <button class="btn again" id="again" type="button">Still learning</button>
+    <button class="btn got" id="got" type="button">Got it</button>
+  </div>
+  <div class="small">
+    <button class="btn" id="prev" type="button">&larr; Back</button>
+    <button class="btn" id="next" type="button">Next &rarr;</button>
+    <button class="btn" id="shuffle" type="button">Shuffle</button>
+    <button class="btn" id="reset" type="button">Clear progress</button>
+  </div>
+</main>
+
+<script>
+(function(){
+var UNITS={g:'Glaciated Landscapes',w:'Weather',c:'Climate Change',h:'Environmental Hazards'};
+var C=[
+/* Glaciated landscapes */
+['g','What is freeze-thaw weathering?','Water gets into cracks in rock and freezes. It expands, widening the crack. Repeated freezing and thawing breaks off pieces of rock.'],
+['g','What is plucking?','Meltwater freezes onto rock. As the glacier moves, it pulls pieces of rock away.'],
+['g','What is abrasion?','Rocks frozen into the base and sides of the glacier scrape and scour the rock surface like sandpaper.'],
+['g','What is a corrie?','An armchair-shaped hollow on a mountainside with a steep back wall, formed by glacial erosion. It often holds a small lake called a tarn.'],
+['g','How is a corrie formed?','Snow collects in a hollow and turns to ice. The ice moves with a rotational (turning) movement. Plucking steepens the back wall and abrasion deepens the floor. Freeze-thaw weathering also steepens the back wall. When the ice melts, a rock lip is left and a tarn can form.'],
+['g','What is an arête?','A narrow, steep-sided, knife-edged ridge between two corries.'],
+['g','How is an arête formed?','Two corries form back to back. Plucking and freeze-thaw weathering erode the back walls until only a narrow ridge is left between them.'],
+['g','What is a pyramidal peak?','A steep, sharp mountain top with three or more faces, formed where three or more corries erode back to back.'],
+['g','What is a glacial trough?','A deep, wide, steep-sided U-shaped valley with a flat floor, formed when a glacier erodes and widens an existing river valley.'],
+['g','How is a glacial trough formed?','A glacier follows a V-shaped river valley. Plucking and abrasion deepen and widen it, giving steep sides and a flat floor.'],
+['g','What are truncated spurs?','Ridges of land that stick out into a valley and have been cut off (truncated) by the glacier as it moved past.'],
+['g','What is a hanging valley?','A tributary valley left high above the main glacial trough, because the smaller glacier in it eroded less. A waterfall often drops from it.'],
+['g','What is a ribbon lake?','A long, narrow lake on the floor of a glacial trough, formed where the glacier eroded a deeper hollow that filled with water.'],
+['g','What are erratics?','Large boulders carried by ice and dropped in an area with a different rock type when the glacier melted.'],
+['g','What is moraine?','Material (rock and debris) carried and deposited by a glacier. Types include lateral, medial, terminal and ground moraine.'],
+['g','Where is each type of moraine found?','Lateral: along the sides of the glacier. Medial: down the middle, where two glaciers join. Terminal: at the furthest point the glacier reached. Ground: under the glacier.'],
+['g','What are drumlins?','Smooth, egg-shaped hills of deposited material (boulder clay) that show the direction the ice moved in.'],
+['g','Name some land uses in glaciated upland areas.','Tourism and recreation, farming (sheep), forestry, hydro-electric power and water supply.'],
+['g','Give an example of a land use conflict in a glaciated upland area.','Tourists want unspoiled scenery and quiet, but traffic, litter and footpath erosion harm farming and the environment. Farmers, tourists and conservation groups can have competing aims.'],
+['g','Give two ways footpath erosion in glaciated uplands can be managed.','Repair and surface paths (e.g. stone pitching), and encourage visitors to stay on marked paths with signs and fencing.'],
+/* Weather */
+['w','What are the main air masses that affect the British Isles?','Polar maritime, tropical maritime, polar continental, tropical continental, Arctic maritime and returning polar maritime.'],
+['w','What are the characteristics of a polar maritime air mass?','Comes from the north-west over the Atlantic. Cool and moist, giving showers.'],
+['w','What are the characteristics of a tropical maritime air mass?','Comes from the south-west over the Atlantic. Warm and moist, giving mild, damp, cloudy weather.'],
+['w','What are the characteristics of a tropical continental air mass?','Comes from the south (North Africa). Hot and dry in summer, with high temperatures.'],
+['w','What are the characteristics of a polar continental air mass?','Comes from the east (Eastern Europe/Russia). Very cold and dry in winter, warm and dry in summer.'],
+['w','What are the characteristics of an Arctic maritime air mass?','Comes from the north. Very cold, bringing snow and showers in winter.'],
+['w','What is a depression?','An area of low pressure where air rises, cools and condenses. It brings cloud, rain and strong winds, and moves in from the Atlantic with a warm front and a cold front.'],
+['w','What is the weather like at a warm front?','Rain from thickening cloud as the front arrives, then it becomes warmer, with lighter rain and cloud in the warm sector behind it.'],
+['w','What is the weather like at a cold front?','Heavy rain and sometimes thunder as it passes, then the temperature drops, with clearing skies, showers and a change in wind direction.'],
+['w','What is an anticyclone?','An area of high pressure where air sinks. It brings settled, dry weather with light winds and little cloud.'],
+['w','What weather does an anticyclone bring in summer and in winter?','Summer: warm to hot, sunny and dry. Winter: cold, with frost and fog.'],
+['w','What do isobars show, and what do close isobars mean?','Isobars join places with equal air pressure. Close together means strong winds. Far apart means light winds.'],
+['w','How is relief rainfall formed?','Moist air is forced to rise over high ground. It cools, condenses and forms clouds and rain on the windward side. The leeward side is drier (rain shadow).'],
+['w','How is frontal rainfall formed?','Warm air meets cold air at a front. The lighter warm air is forced to rise over the cold air, cools, condenses and forms rain.'],
+['w','How is convectional rainfall formed?','The ground is heated by the sun. Warm air rises, cools, condenses and forms tall clouds, giving heavy showers or thunderstorms.'],
+/* Climate change */
+['c','What is the greenhouse effect?','Gases in the atmosphere trap heat from the Earth that would otherwise escape to space, keeping the planet warm.'],
+['c','Name two natural causes of climate change.','Changes in the Earth’s orbit and tilt, changes in sunspot activity, and volcanic eruptions.'],
+['c','Name human causes of climate change.','Burning fossil fuels, deforestation (fewer trees to absorb carbon dioxide), and farming (cattle and rice paddies release methane).'],
+['c','Which gases are the main greenhouse gases?','Carbon dioxide, methane and water vapour. Methane and nitrous oxide are also important human-made contributors.'],
+['c','Describe some effects of climate change.','Rising temperatures, melting ice and glaciers, rising sea levels and flooding of low-lying land, and more extreme weather such as heatwaves, droughts and storms.'],
+['c','Give two effects of climate change on people.','Flooding of coastal homes and farmland, loss of crops from drought, and damage to property from storms.'],
+['c','Give two ways to manage climate change.','International agreements (e.g. the Paris Agreement), switching to renewable energy, planting trees, and using energy more efficiently.'],
+['c','What is the aim of the Paris Agreement (2015)?','Countries agreed to limit global warming to well below 2°C above pre-industrial levels, and to try for 1.5°C.'],
+['c','What is a carbon footprint?','The total amount of greenhouse gases produced by a person, group or activity.'],
+/* Environmental hazards */
+['h','What are the layers of the Earth?','Inner core, outer core, mantle and crust.'],
+['h','What are tectonic plates?','Large pieces of the Earth’s crust that move slowly on the mantle. Most earthquakes and volcanoes occur at plate boundaries.'],
+['h','Name the three types of plate boundary.','Constructive (plates move apart), destructive (plates move together) and conservative (plates slide past each other).'],
+['h','What happens at a destructive plate boundary?','A denser oceanic plate sinks beneath a lighter continental plate (subduction). This causes earthquakes and volcanoes.'],
+['h','What happens at a constructive plate boundary?','Plates move apart. Magma rises to fill the gap, forming new crust and volcanoes.'],
+['h','What happens at a conservative plate boundary?','Plates slide past each other. Pressure builds up and is released as earthquakes. Volcanoes do not form.'],
+['h','What are the focus and epicentre of an earthquake?','Focus: the point underground where the earthquake starts. Epicentre: the point on the surface directly above the focus, where shaking is usually strongest.'],
+['h','How are earthquakes measured?','Seismometers record the shaking. The strength (magnitude) is given on a scale such as the Richter scale.'],
+['h','Give two ways of reducing the impact of earthquakes.','Earthquake-resistant buildings, emergency drills and education, and emergency supplies and services.'],
+['h','What is the difference between primary and secondary effects of a hazard?','Primary effects happen immediately because of the hazard (e.g. buildings collapse). Secondary effects happen afterwards (e.g. fires, disease, loss of jobs).']
+];
+C.forEach(function(c,i){c.id=i});
+
+var st={unit:'all',hide:false,order:[],pos:0,flipped:false,known:{}};
+try{var k=JSON.parse(localStorage.getItem('n5geo-known')||'{}');if(k&&typeof k==='object')st.known=k}catch(e){}
+function save(){try{localStorage.setItem('n5geo-known',JSON.stringify(st.known))}catch(e){}}
+function $(id){return document.getElementById(id)}
+
+function deck(){
+  return C.filter(function(c){
+    return (st.unit==='all'||c[0]===st.unit)&&!(st.hide&&st.known[c.id]);
+  });
+}
+function build(shuffle){
+  var d=deck();
+  if(shuffle){for(var i=d.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=d[i];d[i]=d[j];d[j]=t}}
+  st.order=d;st.pos=0;st.flipped=false;render();
+}
+function tabs(){
+  var el=$('tabs');el.innerHTML='';
+  [['all','All topics']].concat(Object.keys(UNITS).map(function(k){return [k,UNITS[k]]})).forEach(function(u){
+    var n=C.filter(function(c){return u[0]==='all'||c[0]===u[0]}).length;
+    var b=document.createElement('button');b.type='button';b.className='tab';
+    b.setAttribute('aria-pressed',String(st.unit===u[0]));
+    b.innerHTML=u[1]+'<span class="n">'+n+'</span>';
+    b.onclick=function(){st.unit=u[0];tabs();build(false)};
+    el.appendChild(b);
+  });
+}
+function render(){
+  var scene=$('scene'),total=C.filter(function(c){return st.unit==='all'||c[0]===st.unit}).length;
+  var known=C.filter(function(c){return (st.unit==='all'||c[0]===st.unit)&&st.known[c.id]}).length;
+  $('fill').style.width=(total?known/total*100:0)+'%';
+  if(!st.order.length){
+    scene.innerHTML='<div class="empty">'+(st.hide?'You know every card in this topic. Untick "Hide cards I know" to revise them again.':'No cards here.')+'</div>';
+    $('count').textContent=known+' of '+total+' known';
+    ['again','got','prev','next'].forEach(function(i){$(i).disabled=true});return;
+  }
+  ['again','got','prev','next'].forEach(function(i){$(i).disabled=false});
+  var c=st.order[st.pos];
+  scene.innerHTML='<button type="button" class="card u-'+c[0]+(st.flipped?' flipped':'')+'" id="card" aria-label="Flashcard. Press to flip.">'+
+    '<span class="face front"><span class="tag">'+UNITS[c[0]]+'</span><span class="q"></span><span class="hint">Tap to see the answer</span></span>'+
+    '<span class="face back"><span class="tag">Answer</span><span class="a"></span><span class="hint">'+(st.known[c.id]?'Marked as known':'Not marked yet')+'</span></span></button>';
+  scene.querySelector('.q').textContent=c[1];
+  scene.querySelector('.a').textContent=c[2];
+  $('card').onclick=flip;
+  $('count').textContent='Card '+(st.pos+1)+' of '+st.order.length+' · '+known+' of '+total+' known';
+}
+function flip(){st.flipped=!st.flipped;var c=$('card');if(c)c.classList.toggle('flipped',st.flipped)}
+function go(d){if(!st.order.length)return;st.pos=(st.pos+d+st.order.length)%st.order.length;st.flipped=false;render()}
+function mark(v){
+  if(!st.order.length)return;var c=st.order[st.pos];
+  if(v)st.known[c.id]=1;else delete st.known[c.id];
+  save();
+  if(v&&st.hide){st.order.splice(st.pos,1);if(st.pos>=st.order.length)st.pos=0;st.flipped=false;render()}
+  else go(1);
+}
+$('next').onclick=function(){go(1)};
+$('prev').onclick=function(){go(-1)};
+$('got').onclick=function(){mark(true)};
+$('again').onclick=function(){mark(false)};
+$('shuffle').onclick=function(){build(true)};
+$('reset').onclick=function(){st.known={};save();build(false)};
+$('hideKnown').onchange=function(e){st.hide=e.target.checked;build(false)};
+document.addEventListener('keydown',function(e){
+  if(e.target&&(e.target.tagName==='INPUT'))return;
+  if(e.key==='ArrowRight')go(1);else if(e.key==='ArrowLeft')go(-1);
+  else if(e.key===' '&&!(e.target&&e.target.tagName==='BUTTON')){e.preventDefault();flip()}
+});
+tabs();build(false);
+})();
+</script>
+
+</body></html>

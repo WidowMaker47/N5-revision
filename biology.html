@@ -1,0 +1,254 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>National 5 Biology Flashcards</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one centred study column. Unit tabs on top, big flip card, then controls. */
+:root{
+  --bg:#eef2f3; --surface:#ffffff; --ink:#15262b; --muted:#566a70; --line:#cfdadd;
+  --cell:#6d4bc2; --multi:#c2432f; --life:#1d7a4d;
+  --cell-soft:#ece6fa; --multi-soft:#fae6e2; --life-soft:#dff1e7;
+  --focus:#0b5cad;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1b1f; --surface:#182a30; --ink:#e6eff1; --muted:#9db3b9; --line:#2d444b;
+  --cell:#a78bfa; --multi:#ff8f7a; --life:#58cf8f;
+  --cell-soft:#2a2342; --multi-soft:#3d2420; --life-soft:#173626;
+  --focus:#6cb4ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1b1f; --surface:#182a30; --ink:#e6eff1; --muted:#9db3b9; --line:#2d444b;
+  --cell:#a78bfa; --multi:#ff8f7a; --life:#58cf8f;
+  --cell-soft:#2a2342; --multi-soft:#3d2420; --life-soft:#173626;
+  --focus:#6cb4ff; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;
+  padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-family:var(--display);font-size:clamp(1.6rem,5vw,2.1rem);line-height:1.15;margin:0;text-wrap:balance}
+.sub{margin:4px 0 0;color:var(--muted);font-size:.95rem}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.92rem}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tab .n{font-weight:400;opacity:.7;margin-left:4px;font-variant-numeric:tabular-nums}
+
+.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--life);transition:width .25s}
+label.chk{display:flex;gap:6px;align-items:center;cursor:pointer}
+
+.scene{perspective:1200px}
+.card{position:relative;width:100%;min-height:300px;display:block;border:0;background:none;padding:0;text-align:left;
+  transform-style:preserve-3d;transition:transform .45s}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;
+  border:1.5px solid var(--line);background:var(--surface);padding:22px 22px 18px;display:flex;flex-direction:column;gap:12px;overflow:auto}
+.back{transform:rotateY(180deg)}
+.tag{align-self:flex-start;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.u-c .tag{background:var(--cell-soft);color:var(--cell)} .u-c .face{border-top:5px solid var(--cell)}
+.u-m .tag{background:var(--multi-soft);color:var(--multi)} .u-m .face{border-top:5px solid var(--multi)}
+.u-l .tag{background:var(--life-soft);color:var(--life)} .u-l .face{border-top:5px solid var(--life)}
+.q{font-family:var(--display);font-size:clamp(1.3rem,4.4vw,1.65rem);line-height:1.25;margin:auto 0;text-wrap:balance}
+.a{font-size:1.08rem;margin:auto 0}
+.hint{font-size:.82rem;color:var(--muted);margin-top:auto}
+
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{flex:1 1 120px;border:1.5px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;font-weight:600}
+.btn.again{border-color:var(--multi);color:var(--multi)}
+.btn.got{border-color:var(--life);color:var(--life)}
+.btn:hover{background:var(--bg)}
+.small{display:flex;gap:10px;flex-wrap:wrap}
+.small .btn{flex:0 1 auto;padding:7px 14px;font-weight:400;font-size:.93rem}
+.empty{padding:28px;text-align:center;border:1.5px dashed var(--line);border-radius:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.card,.bar i{transition:none}}
+@media (max-width:420px){.card{min-height:340px}}
+</style>
+
+<main>
+  <header>
+    <h1>National 5 Biology Flashcards</h1>
+    <p class="sub">Tap the card or press Space to flip. Arrow keys move between cards.</p>
+  </header>
+
+  <div class="tabs" id="tabs" role="group" aria-label="Choose a unit"></div>
+
+  <div class="meta">
+    <span id="count" aria-live="polite"></span>
+    <label class="chk" for="hideKnown"><input type="checkbox" id="hideKnown"> Hide cards I know</label>
+  </div>
+  <div class="bar" aria-hidden="true"><i id="fill"></i></div>
+
+  <div class="scene" id="scene"></div>
+
+  <div class="row" id="rate">
+    <button class="btn again" id="again" type="button">Still learning</button>
+    <button class="btn got" id="got" type="button">Got it</button>
+  </div>
+  <div class="small">
+    <button class="btn" id="prev" type="button">&larr; Back</button>
+    <button class="btn" id="next" type="button">Next &rarr;</button>
+    <button class="btn" id="shuffle" type="button">Shuffle</button>
+    <button class="btn" id="reset" type="button">Clear progress</button>
+  </div>
+</main>
+
+<script>
+(function(){
+var UNITS={c:'Cell Biology',m:'Multicellular Organisms',l:'Life on Earth'};
+var C=[
+/* Cell Biology */
+['c','What does the nucleus do?','Contains the genetic material (DNA, in chromosomes) and controls the activities of the cell.'],
+['c','What is the function of the cell membrane?','Controls which substances enter and leave the cell.'],
+['c','What happens in the cytoplasm?','Many chemical reactions take place here. It contains the enzymes that control them.'],
+['c','What is the function of mitochondria?','Site of aerobic respiration, where energy is released from glucose.'],
+['c','What is the function of ribosomes?','Site of protein synthesis.'],
+['c','What is the function of chloroplasts, and what do they contain?','Site of photosynthesis. They contain the green pigment chlorophyll, which absorbs light energy.'],
+['c','What is the plant cell wall made of, and what does it do?','Cellulose. It gives support and strengthens the cell.'],
+['c','What is the function of the vacuole in a plant cell?','Contains cell sap and keeps the cell firm (turgid).'],
+['c','How is a bacterial cell different from an animal cell?','Bacteria have a cell wall but no nucleus. Their DNA is a single circular chromosome, plus small rings called plasmids.'],
+['c','Describe the structure of DNA.','A double helix of two strands. Each strand carries bases. The strands are held together by weak bonds between complementary bases.'],
+['c','State the complementary base pairs in DNA.','A pairs with T. C pairs with G.'],
+['c','What is a gene?','A section of DNA that codes for a particular protein.'],
+['c','What decides the order of amino acids in a protein?','The order (sequence) of bases in the gene.'],
+['c','What is an enzyme?','A biological catalyst. It speeds up a reaction and is not used up.'],
+['c','Why is an enzyme specific to one substrate?','The active site has a shape that is complementary to its substrate only.'],
+['c','What does denatured mean?','The shape of the enzyme (including its active site) has been changed, usually by high temperature or extreme pH, so it can no longer work.'],
+['c','What does amylase break down, and into what?','Starch into maltose.'],
+['c','What does catalase do?','Breaks down hydrogen peroxide into water and oxygen.'],
+['c','What do proteases and lipases break down?','Proteases: proteins into amino acids. Lipases: fats into fatty acids and glycerol.'],
+['c','Write the word equation for aerobic respiration.','Glucose + oxygen → carbon dioxide + water + energy (a large amount of ATP).'],
+['c','What is produced by anaerobic respiration in muscle cells?','Glucose → lactic acid + a small amount of energy.'],
+['c','What is produced by fermentation in yeast?','Glucose → ethanol + carbon dioxide + a small amount of energy.'],
+['c','What is ATP and what is it used for?','The energy carrier of the cell. Energy from respiration is used to make ATP from ADP and phosphate. ATP breaks down to release energy for cell activities such as muscle contraction and protein synthesis.'],
+['c','Write the word equation for photosynthesis.','Carbon dioxide + water → glucose + oxygen, using light energy absorbed by chlorophyll.'],
+['c','Name three factors that can limit the rate of photosynthesis.','Light intensity, carbon dioxide concentration and temperature.'],
+['c','Name three things a plant can do with the glucose it makes.','Use it in respiration, convert it to starch for storage, or convert it to cellulose for cell walls.'],
+['c','Define diffusion.','The net movement of molecules from a high concentration to a low concentration, down a concentration gradient. It needs no energy.'],
+['c','Define osmosis.','The movement of water from a high water concentration to a low water concentration through a selectively permeable membrane.'],
+['c','What happens to a plant cell in pure water, and in a concentrated solution?','In pure water it takes in water and becomes turgid. In a concentrated solution it loses water and becomes plasmolysed.'],
+['c','What happens to an animal cell in pure water, and in a concentrated solution?','In pure water it takes in water and may burst. In a concentrated solution it loses water and shrinks.'],
+['c','What is active transport?','Movement of substances across a membrane against the concentration gradient. It needs energy from respiration and uses carrier proteins.'],
+['c','What is mitosis and why is it needed?','Cell division that produces two genetically identical cells, each with the full diploid number of chromosomes (46 in humans). It is used for growth and repair.'],
+['c','How many chromosomes are in a human body cell, and in a gamete?','46 in a body cell (diploid). 23 in a gamete (haploid).'],
+/* Multicellular Organisms */
+['m','What does differentiation mean?','An unspecialised cell becomes specialised for a particular job by switching on only the genes it needs.'],
+['m','Put these in order, smallest first: organ, cell, organism, tissue, organ system.','Cell → tissue → organ → organ system → organism.'],
+['m','What are stem cells?','Unspecialised cells that can divide and differentiate into specialised cells.'],
+['m','Compare embryonic stem cells and tissue (adult) stem cells.','Embryonic stem cells can become any type of cell. Tissue stem cells can only become the cell types of that tissue.'],
+['m','Where are meristems found and what do they do?','In plants, at root tips and shoot tips. They are regions of unspecialised cells that divide and differentiate.'],
+['m','What is cancer?','Uncontrolled cell division, which can form a tumour. Cells from a tumour can spread to other parts of the body.'],
+['m','What is a gamete?','A sex cell (sperm or egg). It is haploid, with half the normal chromosome number. Fertilisation restores the diploid number.'],
+['m','What does xylem do, and how is it adapted?','Transports water and minerals up the plant. It is made of dead cells forming hollow tubes, strengthened with lignin.'],
+['m','What does phloem do?','Transports dissolved sugars (sucrose) around the plant, up and down. It is made of living cells with sieve plates.'],
+['m','What is transpiration?','Loss of water vapour from the leaves, mainly through the stomata. It pulls water up through the xylem.'],
+['m','What do guard cells do?','Open and close the stomata, controlling gas exchange and water loss.'],
+['m','How is a root hair cell adapted for absorption?','Its long extension gives a large surface area. Water enters by osmosis. Minerals enter by active transport.'],
+['m','List the layers of a leaf from top to bottom.','Waxy cuticle, upper epidermis, palisade mesophyll, spongy mesophyll, lower epidermis (with stomata and guard cells). Veins hold the xylem and phloem.'],
+['m','Why is the palisade mesophyll good for photosynthesis?','Its cells are packed with chloroplasts and sit near the top of the leaf where light is strongest.'],
+['m','Why does the spongy mesophyll have air spaces?','So carbon dioxide and oxygen can move through the leaf and reach the cells.'],
+['m','Describe the route of blood through the heart.','Body → right atrium → right ventricle → pulmonary artery → lungs → pulmonary vein → left atrium → left ventricle → aorta → body.'],
+['m','What do heart valves do?','Prevent blood flowing backwards.'],
+['m','Compare arteries, veins and capillaries.','Arteries: carry blood away from the heart, thick muscular elastic walls, high pressure. Veins: carry blood to the heart, thinner walls, valves. Capillaries: walls one cell thick, where exchange takes place.'],
+['m','Name the four components of blood and their jobs.','Plasma carries dissolved substances. Red blood cells carry oxygen (haemoglobin). White blood cells fight infection. Platelets help blood to clot.'],
+['m','How are alveoli adapted for gas exchange?','Large surface area, thin walls, moist lining and a rich blood supply.'],
+['m','How are villi adapted for absorption?','Large surface area, thin walls (one cell thick) and a rich blood supply. They also contain a lacteal for absorbing fats.'],
+/* Life on Earth */
+['l','Distinguish between a population, a community and an ecosystem.','Population: all the members of one species in an area. Community: all the populations in an area. Ecosystem: the community plus the non-living (abiotic) environment.'],
+['l','Distinguish between a habitat and a niche.','Habitat: where an organism lives. Niche: the role of the organism in the ecosystem, including what it eats and what eats it.'],
+['l','What are biotic and abiotic factors? Give an example of each.','Biotic: living factors, e.g. predation or competition. Abiotic: non-living factors, e.g. temperature or pH.'],
+['l','What is a producer, and what is a consumer?','A producer makes its own food by photosynthesis. A consumer feeds on other organisms.'],
+['l','How is energy lost between trophic levels?','As heat from respiration, in movement, in waste, and in parts that are not eaten. Only a small fraction is passed to the next level.'],
+['l','What is the difference between intraspecific and interspecific competition?','Intraspecific is between members of the same species. Interspecific is between different species.'],
+['l','Name three types of adaptation.','Structural, behavioural and physiological.'],
+['l','Why is random sampling used?','To avoid bias, so the sample represents the whole area.'],
+['l','Why take a large sample?','A larger sample is more reliable and reduces the effect of chance.'],
+['l','What is an indicator species? Give an example.','A species that shows the level of pollution by its presence or absence. Lichens indicate air quality. Mayfly and stonefly nymphs indicate clean water.'],
+['l','What is biodiversity?','The variety of species in an ecosystem and the number of individuals of each.'],
+['l','Define genotype and phenotype.','Genotype: the alleles an organism has. Phenotype: the observable characteristics produced by the genotype.'],
+['l','Define dominant and recessive alleles.','A dominant allele is expressed when present. A recessive allele is only expressed when no dominant allele is present.'],
+['l','Define homozygous and heterozygous.','Homozygous: two identical alleles for a gene. Heterozygous: two different alleles for a gene.'],
+['l','What ratio is expected in the F2 of a monohybrid cross?','3 dominant : 1 recessive phenotype (F1 of two homozygous parents are all heterozygous).'],
+['l','What is a mutation?','A random change in the DNA. It can produce new alleles and is the source of variation.'],
+['l','What can increase the rate of mutation?','Radiation and some chemicals (mutagens).'],
+['l','Describe the steps of natural selection.','There is variation in a population. Competition for resources acts as a selection pressure. Individuals with advantageous features survive and breed. They pass on those alleles, so the allele frequency changes over generations.'],
+['l','What is selective breeding?','Choosing parents with desired features, breeding them, and repeating this with the offspring over many generations.'],
+['l','Give a disadvantage of selective breeding.','Reduced genetic variation, and inbreeding can increase the chance of harmful recessive conditions.']
+];
+C.forEach(function(c,i){c.id=i});
+
+var st={unit:'all',hide:false,order:[],pos:0,flipped:false,known:{}};
+try{var k=JSON.parse(localStorage.getItem('n5bio-known')||'{}');if(k&&typeof k==='object')st.known=k}catch(e){}
+function save(){try{localStorage.setItem('n5bio-known',JSON.stringify(st.known))}catch(e){}}
+function $(id){return document.getElementById(id)}
+
+function deck(){
+  return C.filter(function(c){
+    return (st.unit==='all'||c[0]===st.unit)&&!(st.hide&&st.known[c.id]);
+  });
+}
+function build(shuffle){
+  var d=deck();
+  if(shuffle){for(var i=d.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=d[i];d[i]=d[j];d[j]=t}}
+  st.order=d;st.pos=0;st.flipped=false;render();
+}
+function tabs(){
+  var el=$('tabs');el.innerHTML='';
+  [['all','All units']].concat(Object.keys(UNITS).map(function(k){return [k,UNITS[k]]})).forEach(function(u){
+    var n=C.filter(function(c){return u[0]==='all'||c[0]===u[0]}).length;
+    var b=document.createElement('button');b.type='button';b.className='tab';
+    b.setAttribute('aria-pressed',String(st.unit===u[0]));
+    b.innerHTML=u[1]+'<span class="n">'+n+'</span>';
+    b.onclick=function(){st.unit=u[0];tabs();build(false)};
+    el.appendChild(b);
+  });
+}
+function render(){
+  var scene=$('scene'),total=C.filter(function(c){return st.unit==='all'||c[0]===st.unit}).length;
+  var known=C.filter(function(c){return (st.unit==='all'||c[0]===st.unit)&&st.known[c.id]}).length;
+  $('fill').style.width=(total?known/total*100:0)+'%';
+  if(!st.order.length){
+    scene.innerHTML='<div class="empty">'+(st.hide?'You know every card in this unit. Untick "Hide cards I know" to revise them again.':'No cards here.')+'</div>';
+    $('count').textContent=known+' of '+total+' known';
+    ['again','got','prev','next'].forEach(function(i){$(i).disabled=true});return;
+  }
+  ['again','got','prev','next'].forEach(function(i){$(i).disabled=false});
+  var c=st.order[st.pos];
+  scene.innerHTML='<button type="button" class="card u-'+c[0]+(st.flipped?' flipped':'')+'" id="card" aria-label="Flashcard. Press to flip.">'+
+    '<span class="face front"><span class="tag">'+UNITS[c[0]]+'</span><span class="q"></span><span class="hint">Tap to see the answer</span></span>'+
+    '<span class="face back"><span class="tag">Answer</span><span class="a"></span><span class="hint">'+(st.known[c.id]?'Marked as known':'Not marked yet')+'</span></span></button>';
+  scene.querySelector('.q').textContent=c[1];
+  scene.querySelector('.a').textContent=c[2];
+  $('card').onclick=flip;
+  $('count').textContent='Card '+(st.pos+1)+' of '+st.order.length+' · '+known+' of '+total+' known';
+}
+function flip(){st.flipped=!st.flipped;var c=$('card');if(c)c.classList.toggle('flipped',st.flipped)}
+function go(d){if(!st.order.length)return;st.pos=(st.pos+d+st.order.length)%st.order.length;st.flipped=false;render()}
+function mark(v){
+  if(!st.order.length)return;var c=st.order[st.pos];
+  if(v)st.known[c.id]=1;else delete st.known[c.id];
+  save();
+  if(v&&st.hide){st.order.splice(st.pos,1);if(st.pos>=st.order.length)st.pos=0;st.flipped=false;render()}
+  else go(1);
+}
+$('next').onclick=function(){go(1)};
+$('prev').onclick=function(){go(-1)};
+$('got').onclick=function(){mark(true)};
+$('again').onclick=function(){mark(false)};
+$('shuffle').onclick=function(){build(true)};
+$('reset').onclick=function(){st.known={};save();build(false)};
+$('hideKnown').onchange=function(e){st.hide=e.target.checked;build(false)};
+document.addEventListener('keydown',function(e){
+  if(e.target&&(e.target.tagName==='INPUT'))return;
+  if(e.key==='ArrowRight')go(1);else if(e.key==='ArrowLeft')go(-1);
+  else if(e.key===' '&&!(e.target&&e.target.tagName==='BUTTON')){e.preventDefault();flip()}
+});
+tabs();build(false);
+})();
+</script>
+
+</body></html>

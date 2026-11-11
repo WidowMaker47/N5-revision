@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>National 5 Revision</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--bg:#eef1f4;--surface:#fff;--ink:#152330;--muted:#556676;--line:#cdd6de;--bio:#6d4bc2;--geo:#1f6fb2;--phys:#b5600b;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;--body:'Source Sans 3','Segoe UI',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1820;--surface:#18252f;--ink:#e5edf3;--muted:#9db0bf;--line:#2c3d4a;--bio:#a78bfa;--geo:#6cb4ff;--phys:#f5a659;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;padding:32px 16px 48px}
+main{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--display);font-size:clamp(1.7rem,5vw,2.2rem);margin:0}
+p{margin:0;color:var(--muted)}
+a.set{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1.5px solid var(--line);border-left:6px solid var(--c);border-radius:12px;padding:16px 18px}
+a.set:hover{border-color:var(--c)}
+a.set strong{font-family:var(--display);font-size:1.3rem;display:block}
+a.set span{color:var(--muted);font-size:.95rem}
+</style>
+</head>
+<body>
+<main>
+  <h1>National 5 Revision</h1>
+  <p>Pick a subject. Your progress is saved in this browser.</p>
+  <a class="set" href="physics.html" style="--c:var(--phys)"><strong>Physics</strong><span>Dynamics, Space, Electricity, Properties of Matter, Waves, Radiation</span></a>
+  <a class="set" href="biology.html" style="--c:var(--bio)"><strong>Biology</strong><span>Cell Biology, Multicellular Organisms, Life on Earth</span></a>
+  <a class="set" href="geography.html" style="--c:var(--geo)"><strong>Geography</strong><span>Glaciated Landscapes, Weather, Climate Change, Environmental Hazards</span></a>
+</main>
+</body>
+</html>
