@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}[hidden]{display:none!important}</style></head><body>
+<title>National 5 Engineering Science Flashcards</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one centred study column. Area tabs on top, big flip card, then controls. Matches the other National 5 sets. */
+:root{
+  --bg:#eef1f4; --surface:#ffffff; --ink:#152330; --muted:#556676; --line:#cdd6de;
+  --d:#1f62b8; --s:#4b3fb0; --e:#b5600b; --p:#a8326a; --w:#0f7f86; --r:#2f7d32;
+  --d-soft:#e1ecfa; --s-soft:#e8e6f9; --e-soft:#fbecdc; --p-soft:#f8e3ee; --w-soft:#dcf2f3; --r-soft:#e2f1e2;
+  --focus:#0b5cad;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1820; --surface:#18252f; --ink:#e5edf3; --muted:#9db0bf; --line:#2c3d4a;
+  --d:#7fb0f5; --s:#a99ff5; --e:#f5a659; --p:#f08cbb; --w:#5fd0d6; --r:#79cf7e;
+  --d-soft:#1b2c44; --s-soft:#26223f; --e-soft:#3a2a17; --p-soft:#3a1f2d; --w-soft:#14353a; --r-soft:#1a3420;
+  --focus:#6cb4ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1820; --surface:#18252f; --ink:#e5edf3; --muted:#9db0bf; --line:#2c3d4a;
+  --d:#7fb0f5; --s:#a99ff5; --e:#f5a659; --p:#f08cbb; --w:#5fd0d6; --r:#79cf7e;
+  --d-soft:#1b2c44; --s-soft:#26223f; --e-soft:#3a2a17; --p-soft:#3a1f2d; --w-soft:#14353a; --r-soft:#1a3420;
+  --focus:#6cb4ff; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;
+  padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-family:var(--display);font-size:clamp(1.6rem,5vw,2.1rem);line-height:1.15;margin:0;text-wrap:balance}
+.sub{margin:4px 0 0;color:var(--muted);font-size:.95rem}
+button{font:inherit;color:inherit;cursor:pointer}
+button:disabled{opacity:.45;cursor:default}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.92rem}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tab .n{font-weight:400;opacity:.7;margin-left:4px;font-variant-numeric:tabular-nums}
+
+.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--r);transition:width .25s}
+label.chk{display:flex;gap:6px;align-items:center;cursor:pointer}
+
+.scene{perspective:1200px}
+.card{position:relative;width:100%;min-height:300px;display:block;border:0;background:none;padding:0;text-align:left;
+  transform-style:preserve-3d;transition:transform .45s}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;
+  border:1.5px solid var(--line);background:var(--surface);padding:22px 22px 18px;display:flex;flex-direction:column;gap:12px;overflow:auto}
+.back{transform:rotateY(180deg)}
+.tag{align-self:flex-start;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.u-d .tag{background:var(--d-soft);color:var(--d)} .u-d .face{border-top:5px solid var(--d)}
+.u-s .tag{background:var(--s-soft);color:var(--s)} .u-s .face{border-top:5px solid var(--s)}
+.u-e .tag{background:var(--e-soft);color:var(--e)} .u-e .face{border-top:5px solid var(--e)}
+.u-p .tag{background:var(--p-soft);color:var(--p)} .u-p .face{border-top:5px solid var(--p)}
+.u-w .tag{background:var(--w-soft);color:var(--w)} .u-w .face{border-top:5px solid var(--w)}
+.u-r .tag{background:var(--r-soft);color:var(--r)} .u-r .face{border-top:5px solid var(--r)}
+.q{font-family:var(--display);font-size:clamp(1.3rem,4.4vw,1.65rem);line-height:1.25;margin:auto 0;text-wrap:balance}
+.a{font-size:1.08rem;margin:auto 0}
+.hint{font-size:.82rem;color:var(--muted);margin-top:auto}
+
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{flex:1 1 120px;border:1.5px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;font-weight:600}
+.btn.again{border-color:var(--p);color:var(--p)}
+.btn.got{border-color:var(--r);color:var(--r)}
+.btn:hover:not(:disabled){background:var(--bg)}
+.small{display:flex;gap:10px;flex-wrap:wrap}
+.small .btn{flex:0 1 auto;padding:7px 14px;font-weight:400;font-size:.93rem}
+.empty{padding:28px;text-align:center;border:1.5px dashed var(--line);border-radius:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.card,.bar i{transition:none}}
+@media (max-width:420px){.card{min-height:360px}}
+</style>
+
+<main>
+  <header>
+    <h1>National 5 Engineering Science Flashcards</h1>
+    <p class="sub">Tap the card or press Space to flip. Arrow keys move between cards.</p>
+  </header>
+
+  <div class="tabs" id="tabs" role="group" aria-label="Choose an area"></div>
+
+  <div class="meta">
+    <span id="count" aria-live="polite"></span>
+    <label class="chk" for="hideKnown"><input type="checkbox" id="hideKnown"> Hide cards I know</label>
+  </div>
+  <div class="bar" aria-hidden="true"><i id="fill"></i></div>
+
+  <div class="scene" id="scene"></div>
+
+  <div class="row" id="rate">
+    <button class="btn again" id="again" type="button">Still learning</button>
+    <button class="btn got" id="got" type="button">Got it</button>
+  </div>
+  <div class="small">
+    <button class="btn" id="prev" type="button">&larr; Back</button>
+    <button class="btn" id="next" type="button">Next &rarr;</button>
+    <button class="btn" id="shuffle" type="button">Shuffle</button>
+    <button class="btn" id="reset" type="button">Clear progress</button>
+  </div>
+</main>
+
+<script>
+(function(){
+var UNITS={d:'Engineering Contexts',e:'Electronics and Control',w:'Mechanisms and Structures'};
+var C=[
+/* Engineering contexts and challenges */
+['d','What are the three parts of a system diagram?','Input, process and output.'],
+['d','What is a sub-system?','A smaller part of a larger system that does one job. Sub-systems link together to make the whole system work.'],
+['d','What is the difference between open-loop and closed-loop control?','Open loop: no feedback, so the system cannot check or correct its output (e.g. a basic toaster on a timer). Closed loop: feedback from a sensor lets the system compare its output and adjust it (e.g. a thermostat-controlled heater).'],
+['d','What is feedback in a control system?','Information about the output is sent back to the process so it can be compared with the desired value and corrected.'],
+['d','State the law of conservation of energy.','Energy cannot be created or destroyed. It can only be changed from one form to another.'],
+['d','Name four forms of energy you need to know.','Kinetic, potential, electrical and heat.'],
+['d','What is an energy audit?','A record of the energy going into a system, the useful energy out, and where energy is lost (usually as heat or sound).'],
+['d','State the equation for efficiency.','η = E_out ÷ E_in, or P_out ÷ P_in. Multiply by 100 for a percentage. It can never be more than 100%.'],
+['d','State the equation for work done.','E_w = Fd. Work done (J) = force (N) × distance (m).'],
+['d','State the equation for power.','P = E ÷ t. Power (W) = energy (J) ÷ time (s).'],
+['d','State the equations for kinetic and potential energy.','Kinetic: E_k = ½mv². Potential: E_p = mgh. Both in joules (J).'],
+['d','State the equation for electrical energy.','E_e = VIt. Energy (J) = voltage (V) × current (A) × time (s).'],
+['d','State the equation for heat energy.','E_h = cmΔT. Energy (J) = specific heat capacity × mass (kg) × temperature change (°C).'],
+['d','How do you find the overall efficiency of a system with several stages?','Multiply the efficiencies of each stage together. Example: 0.8 × 0.5 = 0.4, so 40%.'],
+['d','Name the main branches of engineering.','Civil, structural, mechanical, electrical, electronic, chemical and environmental.'],
+['d','What does a civil engineer do? What does a structural engineer do?','Civil: designs and builds infrastructure such as roads, bridges, tunnels and water supply. Structural: makes sure structures are strong and stable enough to carry their loads.'],
+['d','What does a mechanical engineer do? What does an electronic engineer do?','Mechanical: designs machines and moving parts, such as engines and gearboxes. Electronic: designs circuits and control systems.'],
+['d','What does a chemical engineer do? What does an environmental engineer do?','Chemical: designs processes that turn raw materials into useful products, such as fuels and medicines. Environmental: works to reduce pollution and protect the environment, e.g. water treatment and waste management.'],
+['d','Why do large projects need engineers from several branches?','Complex systems involve structures, machines, electronics and environmental issues together, so different specialists must work as a team.'],
+['d','Give a positive and a negative social or economic impact of an engineering project.','Positive: creates jobs and improves transport or services. Negative: disruption during building, or loss of homes or businesses.'],
+['d','Give a positive and a negative environmental impact of an engineering project.','Positive: renewable energy reduces carbon emissions. Negative: destroys habitats, or causes noise and visual pollution.'],
+['d','Give three ways engineering helps tackle climate change.','Renewable energy (wind, solar, hydro), electric vehicles, and more energy-efficient buildings and machines.'],
+/* Electronics and control */
+['e','State the function of an LDR.','A light-dependent resistor. Its resistance decreases as light level increases.'],
+['e','State the function of an NTC thermistor.','A temperature sensor. Its resistance decreases as temperature increases.'],
+['e','State the function of a variable resistor in a control circuit.','Lets you adjust the resistance, so you can set the light or temperature level at which the circuit switches.'],
+['e','State the function of a diode and an LED.','Diode: lets current flow in one direction only. LED: a diode that gives out light.'],
+['e','Why does an LED need a series resistor?','To limit the current, so the LED is not damaged.'],
+['e','What is a relay and why is it used?','A switch operated by an electromagnet. A small current from the control circuit can switch on a separate circuit with a larger current, such as a motor.'],
+['e','Why is a protection diode placed across a relay coil?','When the relay switches off, the coil produces a large reverse voltage. The diode stops this damaging the transistor.'],
+['e','How does a transistor work as a switch?','It switches on when the voltage at its base reaches about 0.7 V. A small base current then allows a larger current to flow through the output device.'],
+['e','State Ohm’s law.','V = IR. Voltage (V) = current (A) × resistance (Ω).'],
+['e','How do you work out total resistance in series and in parallel?','Series: R_T = R₁ + R₂. Parallel: 1/R_T = 1/R₁ + 1/R₂.'],
+['e','State the current and voltage rules for series and parallel circuits.','Series: current is the same everywhere; voltages add up to the supply. Parallel: branch currents add up to the total; voltage is the same across each branch.'],
+['e','What does a voltage divider do?','Two resistors in series split the supply voltage between them. The larger resistor gets the larger share of the voltage.'],
+['e','State the voltage divider equation.','V₂ = V_s × R₂ ÷ (R₁ + R₂). V₂ is the voltage across R₂.'],
+['e','In a voltage divider with an LDR at the bottom, what happens to the output voltage when it gets dark?','The LDR’s resistance increases, so it takes a larger share of the voltage. The output voltage across it rises and can switch on the transistor.'],
+['e','How do you swap a dark-sensing circuit into a light-sensing one?','Swap the positions of the LDR and the variable resistor in the voltage divider.'],
+['e','Describe the AND gate.','Output is 1 only when all inputs are 1. Boolean: A·B.'],
+['e','Describe the OR gate.','Output is 1 when any input is 1. Boolean: A + B.'],
+['e','Describe the NOT gate.','One input. The output is the opposite of the input. Boolean: A with a bar over it (Ā).'],
+['e','How many rows does a truth table need for 2 inputs and for 3 inputs?','2 inputs: 4 rows. 3 inputs: 8 rows.'],
+['e','What is a microcontroller?','A small computer on a single chip that can be programmed to control inputs and outputs. Used in washing machines, toys, cars and alarm systems.'],
+['e','Give advantages of a microcontroller over a hard-wired circuit.','Fewer components, smaller, can be reprogrammed to change how it works, and can do complex tasks cheaply.'],
+['e','Give disadvantages of a microcontroller.','Needs programming skills and equipment, and its output pins give little current, so it needs a driver (e.g. a transistor) for motors.'],
+['e','Name the flowchart symbols and their shapes.','Start/stop: rounded rectangle. Input/output: parallelogram. Decision (branch): diamond. Process (e.g. pause): rectangle.'],
+['e','What do these commands do: high, low, pause?','high 4: switches output pin 4 on. low 4: switches pin 4 off. pause 1000: waits 1000 ms (1 second).'],
+['e','What is the difference between a fixed loop and a continuous loop?','Fixed loop: repeats a set number of times (for…next). Continuous loop: repeats forever until the power is switched off.'],
+['e','What does an if…then command do?','Checks an input. If the condition is true, the program jumps to another part. It is shown as a decision (diamond) in a flowchart.'],
+/* Mechanisms and structures */
+['w','Name the four types of motion.','Rotary (turning in a circle), linear (in a straight line), reciprocating (backwards and forwards in a straight line) and oscillating (swinging backwards and forwards in an arc).'],
+['w','What is the driver gear and what is the driven gear?','Driver: the input gear, turned by the motor. Driven: the output gear, turned by the driver.'],
+['w','In a simple gear train, which way do two meshing gears turn?','In opposite directions.'],
+['w','What does an idler gear do?','Makes the driver and driven gears turn in the same direction. It does not change the speed ratio.'],
+['w','How do you work out the speed ratio of a simple gear train?','Speed ratio = teeth on driven gear ÷ teeth on driver gear.'],
+['w','How do you work out the output speed of a gear train?','Output speed = input speed ÷ speed ratio.'],
+['w','What is a compound gear train?','Two gears fixed on the same shaft, so they turn at the same speed. It gives a large speed reduction in a small space.'],
+['w','How do you work out the total speed ratio of a compound gear train?','Multiply the speed ratios of each stage: total SR = SR₁ × SR₂.'],
+['w','What are the effects of friction in a drive system?','Energy is lost as heat and sound, parts wear, and efficiency falls. Lubrication reduces it.'],
+['w','State the equation linking force, pressure and area in pneumatics.','F = pA. Force (N) = pressure (N/m²) × area (m²). Pressures are often given in N/mm², with area in mm².'],
+['w','What is the difference between single-acting and double-acting cylinders?','Single-acting: air pushes the piston out and a spring returns it. Double-acting: air pushes the piston both out and back in.'],
+['w','Why is the instroke force of a double-acting cylinder smaller than its outstroke force?','The piston rod takes up some of the piston area on that side, so the air pushes on a smaller area.'],
+['w','What does a 5/2 valve do?','Has 5 ports and 2 positions. It is used to control a double-acting cylinder, outstroke and instroke.'],
+['w','What does a restrictor do?','Reduces the flow of air, which slows down a cylinder.'],
+['w','What does a uni-directional restrictor do?','Restricts air flow in one direction only, so you can slow one stroke of a cylinder but not the other.'],
+['w','How is a pneumatic time delay made?','A restrictor slowly fills a reservoir with air. When the pressure is high enough, it operates a valve, such as a diaphragm-operated valve.'],
+['w','What is a diaphragm actuator and what is a solenoid actuator?','Diaphragm: a valve operated by low air pressure pushing on a diaphragm. Solenoid: a valve operated electrically by an electromagnet.'],
+['w','What is the difference between tension and compression?','Tension: forces that stretch a member (a tie). Compression: forces that squash a member (a strut).'],
+['w','What are concurrent forces?','Forces whose lines of action all pass through the same point.'],
+['w','What does equilibrium mean?','The structure is not moving. All forces balance: up = down, left = right, and clockwise moments = anticlockwise moments.'],
+['w','What is a free body diagram?','A diagram of one object showing all the forces acting on it, with their directions.'],
+['w','How do you use a triangle of forces?','Draw the forces head to tail, to scale, in their directions. If the object is in equilibrium they form a closed triangle, so you can find an unknown force.'],
+['w','How do you calculate a moment?','Moment = force × perpendicular distance from the pivot. Unit: Nm.'],
+['w','State the principle of moments.','For an object in equilibrium, the sum of the clockwise moments equals the sum of the anticlockwise moments about any point.'],
+['w','How do you find the reaction forces on a simply supported beam?','Take moments about one support to find the reaction at the other. Then use total upward forces = total downward forces to find the second reaction.'],
+['w','State the equation for direct stress.','Stress = force ÷ area (σ = F ÷ A). Unit: N/mm² or N/m².'],
+['w','State the equation for strain.','Strain = change in length ÷ original length (ε = ΔL ÷ L). It has no units.'],
+['w','How should you justify the choice of a material?','Link a property of the material to the job, e.g. strong in tension, lightweight, resists corrosion, or low cost.']
+];
+C.forEach(function(c,i){c.id=i});
+
+var KEY='n5eng-known';
+var st={unit:'all',hide:false,order:[],pos:0,flipped:false,known:{}};
+try{var k=JSON.parse(localStorage.getItem(KEY)||'{}');if(k&&typeof k==='object')st.known=k}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st.known))}catch(e){}}
+function $(id){return document.getElementById(id)}
+
+function deck(){
+  return C.filter(function(c){
+    return (st.unit==='all'||c[0]===st.unit)&&!(st.hide&&st.known[c.id]);
+  });
+}
+function build(shuffle){
+  var d=deck();
+  if(shuffle){for(var i=d.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=d[i];d[i]=d[j];d[j]=t}}
+  st.order=d;st.pos=0;st.flipped=false;render();
+}
+function tabs(){
+  var el=$('tabs');el.innerHTML='';
+  [['all','All areas']].concat(Object.keys(UNITS).map(function(k){return [k,UNITS[k]]})).forEach(function(u){
+    var n=C.filter(function(c){return u[0]==='all'||c[0]===u[0]}).length;
+    var b=document.createElement('button');b.type='button';b.className='tab';
+    b.setAttribute('aria-pressed',String(st.unit===u[0]));
+    b.innerHTML=u[1]+'<span class="n">'+n+'</span>';
+    b.onclick=function(){st.unit=u[0];tabs();build(false)};
+    el.appendChild(b);
+  });
+}
+function render(){
+  var scene=$('scene'),total=C.filter(function(c){return st.unit==='all'||c[0]===st.unit}).length;
+  var known=C.filter(function(c){return (st.unit==='all'||c[0]===st.unit)&&st.known[c.id]}).length;
+  $('fill').style.width=(total?known/total*100:0)+'%';
+  if(!st.order.length){
+    scene.innerHTML='<div class="empty">'+(st.hide?'You know every card in this area. Untick "Hide cards I know" to revise them again.':'No cards here.')+'</div>';
+    $('count').textContent=known+' of '+total+' known';
+    ['again','got','prev','next'].forEach(function(i){$(i).disabled=true});return;
+  }
+  ['again','got','prev','next'].forEach(function(i){$(i).disabled=false});
+  var c=st.order[st.pos];
+  scene.innerHTML='<button type="button" class="card u-'+c[0]+(st.flipped?' flipped':'')+'" id="card" aria-label="Flashcard. Press to flip.">'+
+    '<span class="face front"><span class="tag">'+UNITS[c[0]]+'</span><span class="q"></span><span class="hint">Tap to see the answer</span></span>'+
+    '<span class="face back"><span class="tag">Answer</span><span class="a"></span><span class="hint">'+(st.known[c.id]?'Marked as known':'Not marked yet')+'</span></span></button>';
+  scene.querySelector('.q').textContent=c[1];
+  scene.querySelector('.a').textContent=c[2];
+  $('card').onclick=flip;
+  $('count').textContent='Card '+(st.pos+1)+' of '+st.order.length+' · '+known+' of '+total+' known';
+}
+function flip(){st.flipped=!st.flipped;var c=$('card');if(c)c.classList.toggle('flipped',st.flipped)}
+function go(d){if(!st.order.length)return;st.pos=(st.pos+d+st.order.length)%st.order.length;st.flipped=false;render()}
+function mark(v){
+  if(!st.order.length)return;var c=st.order[st.pos];
+  if(v)st.known[c.id]=1;else delete st.known[c.id];
+  save();
+  if(v&&st.hide){st.order.splice(st.pos,1);if(st.pos>=st.order.length)st.pos=0;st.flipped=false;render()}
+  else go(1);
+}
+$('next').onclick=function(){go(1)};
+$('prev').onclick=function(){go(-1)};
+$('got').onclick=function(){mark(true)};
+$('again').onclick=function(){mark(false)};
+$('shuffle').onclick=function(){build(true)};
+$('reset').onclick=function(){st.known={};save();build(false)};
+$('hideKnown').onchange=function(e){st.hide=e.target.checked;build(false)};
+document.addEventListener('keydown',function(e){
+  if(e.target&&(e.target.tagName==='INPUT'))return;
+  if(e.key==='ArrowRight')go(1);else if(e.key==='ArrowLeft')go(-1);
+  else if(e.key===' '&&!(e.target&&e.target.tagName==='BUTTON')){e.preventDefault();flip()}
+});
+tabs();build(false);
+})();
+</script>
+
+</body></html>
